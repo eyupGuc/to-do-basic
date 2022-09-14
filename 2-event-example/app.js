@@ -14,6 +14,7 @@ addBtn.addEventListener("click", () => {
     alert("Please enter a task");
   } else {
     newUl.innerHTML += `<li> ${langInput.value} </li>`;
+
     langInput.value = "";
   }
   langInput.focus();
@@ -25,3 +26,23 @@ deleteBtn.addEventListener("click", () => {
     ? newUl.removeChild(newUl.lastElementChild)
     : alert("There is no item to delete");
 });
+
+//? enter key and del event handler
+langInput.addEventListener("keydown", (event) => {
+  //   console.log(event);
+  //   console.log(event.target);
+  //   console.log("Key Code:" + event.keyCode);
+  //   console.log("only code:" + event.code);
+  // keyCode aski noyu code ismini
+  if (event.keyCode === 13) {
+    addBtn.click();
+  }
+  if (event.code === "Delete") {
+    deleteBtn.click();
+  }
+  //   if(event.keyCode===46){
+  //     deleteBtn.click(); // Alternatif
+  //   }
+});
+const redJS = document.createElement("p");
+redJS.className = "red-par";
